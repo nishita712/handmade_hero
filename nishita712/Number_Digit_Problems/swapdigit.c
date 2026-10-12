@@ -1,20 +1,20 @@
-//program to swap 1st and last digit of a number
+//swap 1st and last digit of a number
 #include <stdio.h>
+#include <string.h>
 int main()
 {
-    int n,first,last,place=1;
-    printf("Enter a number: \n");
-    scanf("%d",&n);
-    last = n%10;
-    first = n;
-    while(first>=10)
+    char n[10],temp;
+    int first =0,last ;
+    printf("Enter a number:\n");
+    scanf("%9s",n);
+    if(n[0] == '-')
     {
-        first = first/10;
-        place=place*10;
+        first =1;
     }
-    n = n-first*place-last;
-    n=last*place+n+first;
-    printf("The number after swapping first and last digit is : %d\n",n);
+    last = strlen(n)-1;
+    temp=n[first];
+    n[first]=n[last];
+    n[last]=temp;
+    printf("The number after swapping first and last digit is %s\n",n);
     return 0;
-
 }
